@@ -4,7 +4,7 @@ import NavDropdown from "@/components/nav-dropdown";
 
 export default function Nav() {
     return (
-        <nav className="inline-block pl-16">
+        <nav className="inline-block pl-16 shrink-0">
             <ul className="flex flex-col">
                 <NavLink src="/icons/red/home.svg" alt="Home" link="/">
                     Home

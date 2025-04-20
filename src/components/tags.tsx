@@ -26,7 +26,7 @@ export default function Tags() {
 
     return (
         <div className="flex gap-2">
-            <Pill><Image src="/icons/filter.svg" alt="Filter" width={24} height={24} /></Pill>
+            <Pill onClick={() => console.log("Toggle")}><Image src="/icons/filter.svg" alt="Filter" width={24} height={24} /></Pill>
             {data.map((item, i) => {
                 return <Pill key={i} highlight={selected === item} onClick={() => setSelected(item)}>{item}</Pill>
             })}

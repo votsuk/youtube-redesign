@@ -1,0 +1,54 @@
+[
+    {
+        "id": "1",
+        "title": "How Websites Learned to Fit Everywhere",
+        "creator": {
+            "name": "Juxtopposed",
+            "profilePicture": "/profile-photos/Juxtopposed.png",
+            "verified": true
+        },
+        "views": 150000,
+        "publishedDate": "12/11/2024",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-1.png"
+    },
+    {
+        "id": "2",
+        "title": "I Redesigned Discord UI just to make it Cozier",
+        "creator": {
+            "name": "Juxtopposed",
+            "profilePicture": "/profile-photos/Juxtopposed.png",
+            "verified": true
+        },
+        "views": 433000,
+        "publishedDate": "03/19/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-2.png"
+    },
+    {
+        "id": "3",
+        "title": "everything about color (literally)",
+        "creator": {
+            "name": "Juxtopposed",
+            "profilePicture": "/profile-photos/Juxtopposed.png",
+            "verified": true
+        },
+        "views": 315000,
+        "publishedDate": "01/01/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-3.png"
+    },
+    {
+        "id": "4",
+        "title": "I tried blurring things in Qurky ways",
+        "creator": {
+            "name": "Juxtopposed",
+            "profilePicture": "/profile-photos/Juxtopposed.png",
+            "verified": true
+        },
+        "views": 304000,
+        "publishedDate": "08/01/2024",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-4.png"
+    }
+]
