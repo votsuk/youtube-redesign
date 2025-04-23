@@ -1,3 +1,4 @@
+import AllVideos from "@/components/all-videos";
 import LatestVideos from "@/components/latest-videos";
 import Tags from "@/components/tags";
 
@@ -6,6 +7,7 @@ export default function Home() {
         <div className="flex flex-col gap-4">
             <Tags />
             <LatestVideos />
+            <AllVideos />
         </div>
     );
 }

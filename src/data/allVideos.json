@@ -1,0 +1,80 @@
+[
+    {
+        "id": "1",
+        "title": "I Redesigned the ENTIRE YouTube UI from Scratch",
+        "creator": {
+            "name": "Juxtopposed",
+            "profilePicture": "/profile-photos/Juxtopposed.png",
+            "verified": true
+        },
+        "views": 50000,
+        "publishedDate": "04/22/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-5.png"
+    },
+    {
+        "id": "2",
+        "title": "christmas lofi radio 🎄cozy beats to get festive to",
+        "creator": {
+            "name": "Lofi Girl",
+            "profilePicture": "/profile-photos/lofigirl.png",
+            "verified": true
+        },
+        "views": 120000,
+        "publishedDate": "04/22/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-6.png"
+    },
+    {
+        "id": "3",
+        "title": "How a cat works",
+        "creator": {
+            "name": "WVW",
+            "profilePicture": "/profile-photos/wvw.png",
+            "verified": false
+        },
+        "views": 4000000,
+        "publishedDate": "05/01/2024",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-7.png"
+    },
+    {
+        "id": "4",
+        "title": "The Every UUID Website Explained",
+        "creator": {
+            "name": "ThePrimeTime",
+            "profilePicture": "/profile-photos/ThePrimeTime.png",
+            "verified": true
+        },
+        "views": 108000,
+        "publishedDate": "04/22/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-8.png"
+    },
+    {
+        "id": "5",
+        "title": "The IMPOSSIBLE Laptop Fan...",
+        "creator": {
+            "name": "Dave2D",
+            "profilePicture": "/profile-photos/dave2d.png",
+            "verified": true
+        },
+        "views": 300000,
+        "publishedDate": "04/22/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-9.png"
+    },
+    {
+        "id": "6",
+        "title": "I Turned Famous Logos into Emojis",
+        "creator": {
+            "name": "Brandon Shepherd",
+            "profilePicture": "/profile-photos/brandonshepherd.png",
+            "verified": true
+        },
+        "views": 113000,
+        "publishedDate": "04/22/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-10.png"
+    }
+]
