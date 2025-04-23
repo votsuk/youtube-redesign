@@ -11,7 +11,7 @@ export default function AppShell({
             <TopHeader />
             <div className="flex">
                 <Nav />
-                <main className="px-6 overflow-hidden">
+                <main className="px-6 overflow-hidden w-full">
                     {children}
                 </main>
             </div>

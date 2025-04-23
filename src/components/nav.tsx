@@ -30,16 +30,16 @@ export default function Nav() {
                 <NavLink src="/icons/red/like.svg" alt="Liked Videos" link="/liked-videos">
                     Liked Videos
                 </NavLink>
-                <NavDropdown src="/icons/red/playlists.svg" alt="Playlists" link="/playlists/">
+                <NavDropdown src="/icons/red/playlists.svg" alt="Playlists" link="/playlists">
                     Playlists
                 </NavDropdown>
                 <div className="px-2.5">
                     <Divider />
                 </div>
-                <NavDropdown src="/icons/red/collections.svg" alt="Collections" link="/collections/">
+                <NavDropdown src="/icons/red/collections.svg" alt="Collections" link="/collections">
                     Collections
                 </NavDropdown>
-                <NavDropdown src="/icons/red/subscriptions.svg" alt="Subscriptions" link="/subscriptions/">
+                <NavDropdown src="/icons/red/subscriptions.svg" alt="Subscriptions" link="/subscriptions">
                     Subscriptions
                 </NavDropdown>
                 <div className="px-2.5">
