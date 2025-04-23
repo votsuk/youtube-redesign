@@ -25,7 +25,8 @@ export default function Tags() {
     const [selected, setSelected] = useState(categories[0]);
 
     return (
-        <div className="relative flex gap-2 overflow-hidden">
+        <div className="relative overflow-hidden">
+            <div className="flex gap-2">
             {/* Gradient Overlay */}
             <div className="absolute h-full w-36 right-0 top-0 z-1 bg-gradient-to-r from-transparent via-[#111] via-70% to-[#111]"></div>
 
@@ -48,7 +49,7 @@ export default function Tags() {
             {/* Filter Pill */}
             <Pill onClick={() => console.log("Toggle")}>
                 <Image
-                    className="group-hover:brightness-0"
+                    className="group-hover:brightness-0 w-full h-auto"
                     src="/icons/filter.svg"
                     alt="Filter"
                     width={24}
@@ -56,26 +57,27 @@ export default function Tags() {
                 />
             </Pill>
 
-            {/* Category Pills */}
-            {categories.map((item, i) => (
-                <Pill
-                    key={i}
-                    highlight={selected === item}
-                    onClick={() => setSelected(item)}
-                    special={item === "New Creators"}
-                >
-                    {/* Special Icon for "New Creators" */}
-                    {item === "New Creators" && (
-                        <Image
-                            src="/icons/star.svg"
-                            width={22}
-                            height={24}
-                            alt="Star"
-                        />
-                    )}
-                    <span className="text-nowrap">{item}</span>
-                </Pill>
-            ))}
+                {/* Category Pills */}
+                {categories.map((item, i) => (
+                    <Pill
+                        key={i}
+                        highlight={selected === item}
+                        onClick={() => setSelected(item)}
+                        special={item === "New Creators"}
+                    >
+                        {/* Special Icon for "New Creators" */}
+                        {item === "New Creators" && (
+                            <Image
+                                src="/icons/star.svg"
+                                width={22}
+                                height={24}
+                                alt="Star"
+                            />
+                        )}
+                        <p className="text-nowrap">{item}</p>
+                    </Pill>
+                ))}
+            </div>
         </div>
     );
 }
