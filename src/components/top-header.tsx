@@ -1,19 +1,24 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useNav } from "@/components/nav";
 
 export default function TopHeader() {
     const [searchInput, setSearchInput] = useState("");
+    const { toggleNav } = useNav();
 
     function handleSearchInput(e: React.ChangeEvent<HTMLInputElement>) {
         setSearchInput(e.target.value);
     }
 
     return (
-        <header className="py-3 px-16">
+        <header className="py-3">
             <div className="flex items-center justify-between">
-                <div className="flex gap-5">
-                    <button className="w-7 h-7 cursor-pointer hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+                <div className="flex items-center gap-5">
+                    <button
+                        className="w-10 h-10 cursor-pointer hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+                        onClick={toggleNav}
+                    >
                         <Image className="w-6 h-6" src="/icons/hamburger.svg" alt="menu icon" width={24} height={24} />
                     </button>
                     <Image className="h-full" src="/logo.svg" alt="menu icon" width={112} height={24} />

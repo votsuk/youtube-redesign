@@ -1,47 +1,75 @@
+"use client";
+import { createContext, useContext, useState } from "react";
 import NavLink from "@/components/nav-link";
 import Divider from "@/components/divider";
 import NavDropdown from "@/components/nav-dropdown";
 
-export default function Nav() {
+type NavContextProps = {
+    state: "expanded" | "collapsed";
+    open: boolean;
+    setOpen: (open: boolean) => void;
+    toggleNav: () => void;
+}
+
+const NavContext = createContext<NavContextProps | null>(null);
+
+export function useNav() {
+    const context = useContext(NavContext);
+    if (!context) {
+        throw new Error("useNav must be used within a NavProvider");
+    }
+
+    return context;
+}
+
+export function NavProvider({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const [open, setOpen] = useState(true);
+    const state = open ? "expanded" : "collapsed";
+
+    function toggleNav() {
+        return setOpen((prev) => !prev);
+    };
+
+    const contextValue: NavContextProps = {
+        state,
+        open,
+        setOpen,
+        toggleNav,
+    };
+
     return (
-        <nav className="inline-block pl-16 shrink-0">
+        <NavContext.Provider value={contextValue}>
+            {children}
+        </NavContext.Provider>
+    )
+}
+
+export default function Nav() {
+    const { state, open } = useNav();
+
+    return (
+        <nav className="group inline-block shrink-0" data-variant="nav" data-state={state} data-collapsible={open ? "" : "icon"}>
             <ul className="flex flex-col">
-                <NavLink src="/icons/red/home.svg" alt="Home" link="/">
-                    Home
-                </NavLink>
-                <NavLink src="/icons/red/explore.svg" alt="Explore" link="/explore">
-                    Explore
-                </NavLink>
-                <NavLink src="/icons/red/shorts.svg" alt="Shorts" link="/shorts">
-                    Shorts
-                </NavLink>
-                <NavLink src="/icons/red/tv-mode.svg" alt="TV Mode" link="/tv-mode">
-                    TV Mode
-                </NavLink>
+                <NavLink icon="/icons/red/home.svg" text="Home" link="/" />
+                <NavLink icon="/icons/red/explore.svg" text="Explore" link="/explore" />
+                <NavLink icon="/icons/red/shorts.svg" text="Shorts" link="/shorts" />
+                <NavLink icon="/icons/red/tv-mode.svg" text="TV Mode" link="/tv-mode" />
                 <div className="px-2.5">
                     <Divider />
                 </div>
-                <NavLink src="/icons/red/history.svg" alt="History" link="/history">
-                    History
-                </NavLink>
-                <NavLink src="/icons/red/clock.svg" alt="Watch Later" link="/watch-later">
-                    Watch Later
-                </NavLink>
-                <NavLink src="/icons/red/like.svg" alt="Liked Videos" link="/liked-videos">
-                    Liked Videos
-                </NavLink>
-                <NavDropdown src="/icons/red/playlists.svg" alt="Playlists" link="/playlists">
-                    Playlists
-                </NavDropdown>
+                <NavLink icon="/icons/red/history.svg" text="History" link="/history" />
+                <NavLink icon="/icons/red/clock.svg" text="Watch Later" link="/watch-later" />
+                <NavLink icon="/icons/red/like.svg" text="Liked Videos" link="/liked-videos" />
+                <NavDropdown icon="/icons/red/playlists.svg" text="Playlists" link="/playlists" />
                 <div className="px-2.5">
                     <Divider />
                 </div>
-                <NavDropdown src="/icons/red/collections.svg" alt="Collections" link="/collections">
-                    Collections
-                </NavDropdown>
-                <NavDropdown src="/icons/red/subscriptions.svg" alt="Subscriptions" link="/subscriptions">
-                    Subscriptions
-                </NavDropdown>
+                <NavDropdown icon="/icons/red/collections.svg" text="Collections" link="/collections" />
+                <NavDropdown icon="/icons/red/subscriptions.svg" text="Subscriptions" link="/subscriptions" />
                 <div className="px-2.5">
                     <Divider />
                 </div>

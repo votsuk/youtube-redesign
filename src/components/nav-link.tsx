@@ -4,32 +4,30 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function NavLink({
-    children,
-    src,
-    alt,
+    icon,
+    text,
     link,
 }: Readonly<{
-    children: React.ReactNode;
-    src?: string;
-    alt?: string;
+    icon?: string;
+    text: string;
     link: string;
 }>) {
     const path = usePathname();
     const isActive = path === link;
 
     return (
-        <li className={`group cursor-pointer w-full rounded-lg font-medium text-lg transition-all hover:bg-[#FFAABB]/14 ${isActive && `bg-[#FFAABB]/14`}`}>
+        <li className={`group/nav-item cursor-pointer w-full rounded-lg font-medium text-lg transition-all hover:bg-[#FFAABB]/14 ${isActive && `bg-[#FFAABB]/14`}`}>
             <Link href={link} className="p-2.5 flex items-center gap-4 ">
-                {(src && alt) && (
+                {(icon && text) && (
                     <Image
-                        src={src}
-                        alt={alt}
+                        src={icon}
+                        alt={text}
                         width={24}
                         height={24}
-                        className={!isActive ? "group-hover:filter-none filter invert brightness-0": ""}
+                        className={!isActive ? "group-hover/nav-item:filter-none filter invert brightness-0": ""}
                     />
                 )}
-                {children}
+                <span className="group-data-[collapsible=icon]:hidden">{text}</span>
             </Link>
         </li>
     )

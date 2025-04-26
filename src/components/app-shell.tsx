@@ -1,5 +1,5 @@
 import TopHeader from "@/components/top-header";
-import Nav from "@/components/nav";
+import Nav, { NavProvider } from "@/components/nav";
 
 export default function AppShell({
     children,
@@ -7,14 +7,16 @@ export default function AppShell({
     children: React.ReactNode;
 }>) {
     return (
-        <>
-            <TopHeader />
-            <div className="flex">
-                <Nav />
-                <main className="px-6 overflow-hidden w-full">
-                    {children}
-                </main>
-            </div>
-        </>
+        <div className="px-16">
+            <NavProvider>
+                <TopHeader />
+                <div className="flex">
+                    <Nav />
+                    <main className="pl-6 overflow-hidden w-full">
+                        {children}
+                    </main>
+                </div>
+            </NavProvider>
+        </div>
     )
 }
