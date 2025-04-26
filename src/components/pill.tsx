@@ -23,7 +23,7 @@ export default function Pill({
 
     return (
         <div
-            className={`group cursor-pointer w-full h-full px-4 py-1.5 flex items-center justify-center gap-2 rounded-lg hover:text-black hover:bg-white transition-colors ${getBackgroundColor()}`}
+            className={`group cursor-pointer h-9 px-4 text-sm py-1.5 flex items-center justify-center gap-2 rounded-lg hover:text-black hover:bg-white transition-colors ${getBackgroundColor()}`}
             {...props}
         >
             {children}

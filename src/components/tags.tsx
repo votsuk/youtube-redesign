@@ -49,7 +49,7 @@ export default function Tags() {
             {/* Filter Pill */}
             <Pill onClick={() => console.log("Toggle")}>
                 <Image
-                    className="group-hover:brightness-0 w-full h-auto"
+                    className="group-hover:brightness-0 w-6 h-6 max-w-none"
                     src="/icons/filter.svg"
                     alt="Filter"
                     width={24}
