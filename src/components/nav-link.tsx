@@ -2,33 +2,38 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function NavLink({
     icon,
     text,
-    link,
+    href,
 }: Readonly<{
     icon?: string;
     text: string;
-    link: string;
+    href: string;
 }>) {
     const path = usePathname();
-    const isActive = path === link;
+    const isActive = path === href;
+    const isMobile = useIsMobile();
 
     return (
-        <li className={`group/nav-item cursor-pointer w-full rounded-lg font-medium text-lg transition-all hover:bg-[#FFAABB]/14 ${isActive && `bg-[#FFAABB]/14`}`}>
-            <Link href={link} className="p-2.5 flex items-center gap-4 ">
-                {(icon && text) && (
+        <Link
+            href={href}
+            className={`group/nav-item py-3 xl:p-2.5 flex flex-col xl:flex-row items-center gap-2.5 xl:gap-4 cursor-pointer w-full rounded-lg font-medium text-lg transition-all xl:hover:bg-selected ${isActive && `xl:bg-selected`} ${!isActive && "opacity-70 xl:opacity-100 hover:opacity-100"}`}
+        >
+            {icon && (
+                <div className={`${(isActive && isMobile) && "relative before:absolute before:inset-0 before:-mt-1 before:block before:bg-selected before:w-full before:rounded-full before:py-4 w-full flex items-center justify-center"}`}>
                     <Image
                         src={icon}
                         alt={text}
                         width={24}
                         height={24}
-                        className={!isActive ? "group-hover/nav-item:filter-none filter invert brightness-0": ""}
+                        className={isActive ? "": "group-hover/nav-item:filter-none filter invert brightness-0"}
                     />
-                )}
-                <span className="group-data-[collapsible=icon]:hidden">{text}</span>
-            </Link>
-        </li>
+                </div>
+            )}
+            <span className={`group-data-[collapsible=icon]:hidden text-xs xl:text-base ${isActive && "font-bold"}`}>{text}</span>
+        </Link>
     )
 }

@@ -48,31 +48,99 @@ export function NavProvider({
     )
 }
 
+const navData = [
+    {
+        "icon": "/icons/red/home.svg",
+        "text": "Home",
+        "href": "/",
+        "dropdown": false,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/explore.svg",
+        "text": "Explore",
+        "href": "/explore",
+        "dropdown": false,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/shorts.svg",
+        "text": "Shorts",
+        "href": "/shorts",
+        "dropdown": false,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/tv-mode.svg",
+        "text": "TV Mode",
+        "href": "/tv-mode",
+        "dropdown": false,
+        "divider": true
+    },
+    {
+        "icon": "/icons/red/history.svg",
+        "text": "History",
+        "href": "/history",
+        "dropdown": false,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/clock.svg",
+        "text": "Watch Later",
+        "href": "/watch-later",
+        "dropdown": false,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/like.svg",
+        "text": "Liked Videos",
+        "href": "/liked-videos",
+        "dropdown": false,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/playlists.svg",
+        "text": "Playlists",
+        "href": "/playlists",
+        "dropdown": true,
+        "divider": true
+    },
+    {
+        "icon": "/icons/red/collections.svg",
+        "text": "Collections",
+        "href": "/collections",
+        "dropdown": true,
+        "divider": false
+    },
+    {
+        "icon": "/icons/red/subscriptions.svg",
+        "text": "Subscriptions",
+        "href": "/subscriptions",
+        "dropdown": true,
+        "divider": true
+    },
+]
+
 export default function Nav() {
     const { state, open } = useNav();
 
     return (
         <nav className="group inline-block shrink-0" data-variant="nav" data-state={state} data-collapsible={open ? "" : "icon"}>
             <ul className="flex flex-col">
-                <NavLink icon="/icons/red/home.svg" text="Home" link="/" />
-                <NavLink icon="/icons/red/explore.svg" text="Explore" link="/explore" />
-                <NavLink icon="/icons/red/shorts.svg" text="Shorts" link="/shorts" />
-                <NavLink icon="/icons/red/tv-mode.svg" text="TV Mode" link="/tv-mode" />
-                <div className="px-2.5">
-                    <Divider />
-                </div>
-                <NavLink icon="/icons/red/history.svg" text="History" link="/history" />
-                <NavLink icon="/icons/red/clock.svg" text="Watch Later" link="/watch-later" />
-                <NavLink icon="/icons/red/like.svg" text="Liked Videos" link="/liked-videos" />
-                <NavDropdown icon="/icons/red/playlists.svg" text="Playlists" link="/playlists" />
-                <div className="px-2.5">
-                    <Divider />
-                </div>
-                <NavDropdown icon="/icons/red/collections.svg" text="Collections" link="/collections" />
-                <NavDropdown icon="/icons/red/subscriptions.svg" text="Subscriptions" link="/subscriptions" />
-                <div className="px-2.5">
-                    <Divider />
-                </div>
+                {navData.map((item, i) => (
+                    <li key={i}>
+                        {item.dropdown ? (
+                            <NavDropdown icon={item.icon} text={item.text} href={item.href} />
+                        ) : (
+                            <NavLink icon={item.icon} text={item.text} href={item.href} />
+                        )}
+                        {item.divider && (
+                            <div className="px-2.5">
+                                <Divider />
+                            </div>
+                        )}
+                    </li>
+                ))}
             </ul>
         </nav>
     )

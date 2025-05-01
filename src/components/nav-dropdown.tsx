@@ -6,25 +6,25 @@ import Link from "next/link";
 export default function NavDropdown({
     icon,
     text,
-    link,
+    href,
 }: Readonly<{
     icon?: string;
     text: string;
-    link: string;
+    href: string;
 }>) {
     const path = usePathname();
-    const isActive = path === link;
+    const isActive = path === href;
 
     return (
-        <li className="group/nav-item flex justify-between w-full">
-            <Link href={link} className={`flex items-center gap-4 group cursor-pointer rounded-lg p-2.5 font-medium text-lg transition-all hover:bg-[#FFAABB]/14 flex-grow-1 ${isActive && `bg-[#FFAABB]/14`}  `}>
+        <div className="group/nav-item flex justify-between w-full">
+            <Link href={href} className={`flex items-center gap-4 group cursor-pointer rounded-lg p-2.5 font-medium text-lg transition-all hover:bg-selected flex-grow-1 ${isActive && `bg-selected`}  `}>
                 {(icon && text) && (
                     <Image
                         src={icon}
                         alt={text}
                         width={24}
                         height={24}
-                        className={!isActive ? "group-hover/nav-item:filter-none filter invert brightness-0": ""}
+                        className={!isActive ? "group-hover/nav-item:filter-none filter invert brightness-0 w-auto h-auto": "w-auto h-auto"}
                     />
                 )}
                 <span className="group-data-[collapsible=icon]:hidden">{text}</span>
@@ -38,6 +38,6 @@ export default function NavDropdown({
                     height={24}
                 />
             </div>
-        </li>
+        </div>
     )
 }

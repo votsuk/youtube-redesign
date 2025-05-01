@@ -15,7 +15,7 @@ export default function Pill({
         }
 
         if (special) {
-            return "bg-[#FFAABB]/14 text-white"
+            return "bg-selected text-white"
         }
 
         return "bg-[#272727] text-white"
