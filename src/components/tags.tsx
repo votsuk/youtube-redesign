@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Pill from "@/components/pill";
 import Image from "next/image";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsTablet } from "@/hooks/use-tablet";
 
 const categories = [
     "All",
@@ -24,7 +25,7 @@ const categories = [
 
 export default function Tags() {
     const [selected, setSelected] = useState(categories[0]);
-    const isMobile = useIsMobile();
+    const isTablet = useIsTablet();
     const containerRef = useRef<HTMLDivElement>(null);
     const pillsRef = useRef<HTMLDivElement>(null);
     const [isOverflowing, setIsOverflowing] = useState<boolean>(false);
@@ -45,7 +46,7 @@ export default function Tags() {
 
     return (
         <div className="relative overflow-hidden" ref={containerRef}>
-            {(!isMobile && isOverflowing) && (
+            {(!isTablet && isOverflowing) && (
                 <>
                     <div className="absolute h-full w-36 right-0 top-0 z-1 bg-gradient-to-r from-transparent via-darker via-70% to-darker"></div>
                     <div className="absolute h-full w-auto right-0 top-0 z-2 flex flex-col items-center justify-center pr-6">
