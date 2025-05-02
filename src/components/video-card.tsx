@@ -15,7 +15,13 @@ export default function VideoCard({
 
     return (
         <Link href={`/video/${video.id}`} key={video.id} className="flex flex-col gap-3 w-auto h-auto">
-            <div className={`relative ${height ? `h-[${height}px]` : "h-full"} ${width ? `w-[${width}px]` : "w-full"}`}>
+            <div 
+                className="relative"
+                style={{
+                    width: width ? `${width}px` : "100%",
+                    height: height ? `${height}px` : "100%",
+                }}
+            >
                 <Image
                     className="rounded-2xl object-cover w-full h-full"
                     src={video.thumbnail}
