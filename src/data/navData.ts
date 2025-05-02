@@ -15,7 +15,7 @@ export const navData: NavItem[] = [
         "href": "/search",
         "dropdown": false,
         "divider": false,
-        "displaySupport": NavDisplay.Both,
+        "displaySupport": NavDisplay.Tablet,
     },
     {
         "icon": "/icons/red/explore.svg",
