@@ -2,7 +2,6 @@
 import { useState, useRef, useEffect } from "react";
 import Pill from "@/components/pill";
 import Image from "next/image";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { useIsTablet } from "@/hooks/use-tablet";
 
 const categories = [
