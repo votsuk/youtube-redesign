@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import latestVideos from "@/data/latestVideos.json";
 import { Video } from "@/utils/types";
-import VideoCard from "./video-card";
+import VideoCard from "@/components/video-card";
 
 export default function LatestVideos() {
     const [hidden, setHidden] = useState(false);
