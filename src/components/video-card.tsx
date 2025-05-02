@@ -5,39 +5,29 @@ import { formatVideoDuration, formatViews, timeElapsed } from "@/utils/video-uti
 
 export default function VideoCard({
   video,
-  width: w,
-  height: h,
+  width,
+  height,
 }: {
   video: Video;
   width?: number;
   height?: number;
 }) {
-  // Default dimensions if not provided
-  const defaultWidth = 354;
-  const defaultHeight = 199;
-
-  // Use provided width/height or fallback to defaults
-  const width = w || defaultWidth;
-  const height = h || defaultHeight;
 
     return (
         <Link href={`/video/${video.id}`} key={video.id} className="flex flex-col gap-3 w-auto h-auto">
-            <div
-                className="relative"
-                style={{ width: `${width}px`, height: `${height}px` }}
-            >
+            <div className={`relative ${height ? `h-[${height}px]` : "h-full"} ${width ? `w-[${width}px]` : "w-full"}`}>
                 <Image
-                    className="rounded-2xl object-cover"
+                    className="rounded-2xl object-cover w-full h-full"
                     src={video.thumbnail}
                     alt="thumbnail"
-                    fill
-                    sizes={`${width}px`}
+                    width={354}
+                    height={199}
                 />
                 <span className="absolute bottom-2 right-2 bg-black/60 rounded-md px-2 py-0.5">
                     {formatVideoDuration(video.length)}
                 </span>
             </div>
-            <div className="flex gap-2" style={{ width: `${width}px` }}>
+            <div className="flex gap-2">
                 <Image
                     className="w-7.5 h-7.5 md:w-12 md:h-12 rounded-full"
                     src={video.creator.profilePicture}
