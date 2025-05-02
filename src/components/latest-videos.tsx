@@ -31,7 +31,7 @@ export default function LatestVideos() {
     }
 
     return (
-        <div className="relative w-auto bg-[#272727] rounded-2xl p-7.5 pr-0 space-y-4 overflow-hidden mb-5" ref={containerRef}>
+        <div className="relative bg-[#272727] rounded-2xl p-7.5 pr-0 space-y-4 overflow-hidden mb-5" ref={containerRef}>
 
             {/* Gradient Overlay */}
             {isOverflowing && <div className="absolute h-full w-36 right-0 top-0 z-1 bg-linear-to-r from-transparent via-[#272727] via-90% to-[#272727]"></div>}
@@ -53,17 +53,10 @@ export default function LatestVideos() {
                 <div></div>
             </div>
             <h2 className="text-2xl font-medium">In Case You Missed</h2>
-            <div className="inline-flex gap-5" ref={videosRef}>
-                    {latestVideos.map((video: Video) => {
-                        return (
-                            <VideoCard 
-                                key={video.id}
-                                video={video}
-                                width={384}
-                                height={198}
-                            />
-                        )
-                    })}
+            <div className="inline-flex items-start gap-5">
+                {latestVideos.map((video: Video) => (
+                    <VideoCard video={video} key={video.id} width={354} height={199} />
+                ))}
             </div>
         </div>
     )
