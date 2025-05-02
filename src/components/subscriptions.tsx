@@ -69,7 +69,7 @@ export default function Subscriptions() {
     }
 
     return (
-        <div className="flex gap-2.5">
+        <div className="flex gap-3">
             {subscriptions.map((subscription: Creator) => (
                 <div key={subscription.name} className="flex flex-col items-center justify-center gap-1">
                     <div className="relative">
@@ -78,11 +78,11 @@ export default function Subscriptions() {
                             alt={subscription.name}
                             width={56}
                             height={56}
-                            className="rounded-full"
+                            className="rounded-full w-14 h-14"
                         />
                         {subscription.hasNewVideo && <div className="w-3 h-3 bg-red rounded-full border-2 border-black absolute bottom-1 right-0"></div>}
                     </div>
-                    {getConciseProfileName(subscription.name)}
+                    <span className="text-nowrap">{getConciseProfileName(subscription.name)}</span>
                 </div>
             ))}
         </div>

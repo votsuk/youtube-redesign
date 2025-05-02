@@ -16,7 +16,7 @@ export default function LatestVideos() {
         if (containerRef.current && videosRef.current) {
             const containerWidth = containerRef.current.getBoundingClientRect().width;
             const videosWidth = videosRef.current.getBoundingClientRect().width;
-            setIsOverflowing((videosWidth + 50) > containerWidth);
+            setIsOverflowing(videosWidth > containerWidth);
         }
     };
 
@@ -53,7 +53,7 @@ export default function LatestVideos() {
                 <div></div>
             </div>
             <h2 className="text-2xl font-medium">In Case You Missed</h2>
-            <div className="inline-flex items-start gap-5">
+            <div className="inline-flex items-start gap-5" ref={videosRef}>
                 {latestVideos.map((video: Video) => (
                     <VideoCard video={video} key={video.id} width={354} height={199} />
                 ))}

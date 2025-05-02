@@ -50,5 +50,70 @@
         "publishedDate": "08/01/2024",
         "length": 727,
         "thumbnail": "/thumbnails/thumbnail-4.png"
+    },
+    {
+        "id": "5",
+        "title": "To Brawl AND BEYOND!",
+        "creator": {
+            "name": "Brawl Stars",
+            "profilePicture": "/profile-photos/BrawlStars.png",
+            "verified": true
+        },
+        "views": 11000000,
+        "publishedDate": "05/01/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-11.png"
+    },
+    {
+        "id": "6",
+        "title": "ROSÉ - toxic till the end (official music video)",
+        "creator": {
+            "name": "ROSÉ",
+            "profilePicture": "/profile-photos/Rose.png",
+            "verified": true
+        },
+        "views": 21000000,
+        "publishedDate": "05/01/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-12.png"
+    },
+    {
+        "id": "7",
+        "title": "Is expensive Butter worth it?",
+        "creator": {
+            "name": "Ethan Chlebowski",
+            "profilePicture": "/profile-photos/EthanChlebowski.png",
+            "verified": true
+        },
+        "views": 324000,
+        "publishedDate": "05/01/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-13.png"
+    },
+    {
+        "id": "8",
+        "title": "I Tried the Top 5 Restaurants in America",
+        "creator": {
+            "name": "Ryan Trahan",
+            "profilePicture": "/profile-photos/RyanTrahan.png",
+            "verified": true
+        },
+        "views": 1000000,
+        "publishedDate": "05/01/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-14.png"
+    },
+    {
+        "id": "9",
+        "title": "Galaxy Quest Review",
+        "creator": {
+            "name": "RedLetterMedia",
+            "profilePicture": "/profile-photos/RedLetterMedia.png",
+            "verified": true
+        },
+        "views": 451000,
+        "publishedDate": "05/01/2025",
+        "length": 727,
+        "thumbnail": "/thumbnails/thumbnail-15.png"
     }
 ]
