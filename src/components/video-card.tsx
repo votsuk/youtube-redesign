@@ -5,22 +5,25 @@ import { formatVideoDuration, formatViews, timeElapsed } from "@/utils/video-uti
 
 export default function VideoCard({ 
     video, 
-    width, 
-    height 
+    width: w, 
+    height: h, 
 }: { 
     video: Video;
     width?: number;
     height?: number;
 }) {
+    const width = w ? `w-[${w}px]` : "";
+    const height = h ? `h-[${h}px]` : "";
+
     return (
-        <Link href={`/video/${video.id}`} key={video.id} className={`space-y-3 ${width && `w-[${width}px]`}`}>
-            <div className="relative">
-                <Image className={`rounded-2xl ${width ? `w-[${width}px]` : "w-full"} ${height ? `h-[${height}px]` : "h-full"}`} src={video.thumbnail} alt="thumbnail" width={width ? width : 354} height={height ? height : 199} />
+        <Link href={`/video/${video.id}`} key={video.id} className="flex flex-col gap-3 w-auto h-auto">
+            <div className={`relative ${width} ${height}`}>
+                <Image className="rounded-2xl w-full h-full" src={video.thumbnail} alt="thumbnail" width={w ? w : 354} height={h ? h : 199} />
                 <span className="absolute bottom-2 right-2 bg-black/60 rounded-md px-2 py-0.5">
                     {formatVideoDuration(video.length)}
                 </span>
             </div>
-            <div className={`flex gap-2 ${width && ` w-[${width}px]`}`}>
+            <div className={`flex gap-2 ${width}`}>
                 <Image className="w-7.5 h-7.5 md:w-12 md:h-12 rounded-full" src={video.creator.profilePicture} alt={`${video.creator.name} profile picture`} width={48} height={48} />
                 <div className="flex flex-col gap-1 w-full">
                     <h3 className="font-medium md:text-lg">{video.title}</h3>
