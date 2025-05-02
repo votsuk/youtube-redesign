@@ -3,6 +3,9 @@ import { createContext, useContext, useState } from "react";
 import NavLink from "@/components/nav-link";
 import Divider from "@/components/divider";
 import NavDropdown from "@/components/nav-dropdown";
+import { useIsTablet } from "@/hooks/use-tablet";
+import { NavDisplay, NavItem } from "@/utils/types";
+import { navData } from "@/data/navData";
 
 type NavContextProps = {
     state: "expanded" | "collapsed";
@@ -48,100 +51,53 @@ export function NavProvider({
     )
 }
 
-const navData = [
-    {
-        "icon": "/icons/red/home.svg",
-        "text": "Home",
-        "href": "/",
-        "dropdown": false,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/explore.svg",
-        "text": "Explore",
-        "href": "/explore",
-        "dropdown": false,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/shorts.svg",
-        "text": "Shorts",
-        "href": "/shorts",
-        "dropdown": false,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/tv-mode.svg",
-        "text": "TV Mode",
-        "href": "/tv-mode",
-        "dropdown": false,
-        "divider": true
-    },
-    {
-        "icon": "/icons/red/history.svg",
-        "text": "History",
-        "href": "/history",
-        "dropdown": false,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/clock.svg",
-        "text": "Watch Later",
-        "href": "/watch-later",
-        "dropdown": false,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/like.svg",
-        "text": "Liked Videos",
-        "href": "/liked-videos",
-        "dropdown": false,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/playlists.svg",
-        "text": "Playlists",
-        "href": "/playlists",
-        "dropdown": true,
-        "divider": true
-    },
-    {
-        "icon": "/icons/red/collections.svg",
-        "text": "Collections",
-        "href": "/collections",
-        "dropdown": true,
-        "divider": false
-    },
-    {
-        "icon": "/icons/red/subscriptions.svg",
-        "text": "Subscriptions",
-        "href": "/subscriptions",
-        "dropdown": true,
-        "divider": true
-    },
-]
-
 export default function Nav() {
     const { state, open } = useNav();
 
     return (
-        <nav className="group inline-block shrink-0" data-variant="nav" data-state={state} data-collapsible={open ? "" : "icon"}>
+        <nav className="group inline-block shrink-0 min-w-20 xl:min-w-auto" data-variant="nav" data-state={state} data-collapsible={open ? "" : "icon"}>
             <ul className="flex flex-col">
                 {navData.map((item, i) => (
                     <li key={i}>
-                        {item.dropdown ? (
-                            <NavDropdown icon={item.icon} text={item.text} href={item.href} />
-                        ) : (
-                            <NavLink icon={item.icon} text={item.text} href={item.href} />
-                        )}
-                        {item.divider && (
-                            <div className="px-2.5">
-                                <Divider />
-                            </div>
-                        )}
+                        <NavController item={item} />
                     </li>
                 ))}
             </ul>
         </nav>
     )
+}
+
+function NavController({ item }: { item: NavItem }) {
+    const isTablet = useIsTablet();
+
+    if (item.displaySupport === NavDisplay.Tablet && isTablet) {
+        return <NavItemRenderer item={item} />
+    }
+
+    if (item.displaySupport === NavDisplay.Desktop && !isTablet) {
+        return <NavItemRenderer item={item} />
+    }
+
+    if (item.displaySupport === NavDisplay.Both) {
+        return <NavItemRenderer item={item} />
+    }
+
+}
+
+function NavItemRenderer({ item }: { item: NavItem }) {
+    return (
+        <>
+            {item.dropdown ? (
+                <NavDropdown icon={item.icon} text={item.text} href={item.href} />
+            ) : (
+                <NavLink icon={item.icon} text={item.text} href={item.href} />
+            )}
+            {item.divider && (
+                <div className="px-2.5">
+                    <Divider />
+                </div>
+            )}
+        </>
+    )
+
 }

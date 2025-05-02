@@ -17,7 +17,7 @@ export default function TopHeader() {
     }
 
     return (
-        <header className="py-3">
+        <header className="py-3 md:pl-5 xl:pl-0">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-5">
                     <button

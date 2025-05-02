@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsTablet } from "@/hooks/use-tablet";
 
 export default function NavLink({
     icon,
@@ -15,7 +15,7 @@ export default function NavLink({
 }>) {
     const path = usePathname();
     const isActive = path === href;
-    const isMobile = useIsMobile();
+    const isTablet = useIsTablet();
 
     return (
         <Link
@@ -23,7 +23,7 @@ export default function NavLink({
             className={`group/nav-item py-3 xl:p-2.5 flex flex-col xl:flex-row items-center gap-2.5 xl:gap-4 cursor-pointer w-full rounded-lg font-medium text-lg transition-all xl:hover:bg-selected ${isActive && `xl:bg-selected`} ${!isActive && "opacity-70 xl:opacity-100 hover:opacity-100"}`}
         >
             {icon && (
-                <div className={`${(isActive && isMobile) && "relative before:absolute before:inset-0 before:-mt-1 before:block before:bg-selected before:w-full before:rounded-full before:py-4 w-full flex items-center justify-center"}`}>
+                <div className={`${(isActive && isTablet) && "relative before:absolute before:inset-0 before:-mt-1 before:block before:bg-selected before:w-full before:rounded-full before:py-4 w-full flex items-center justify-center"}`}>
                     <Image
                         src={icon}
                         alt={text}
