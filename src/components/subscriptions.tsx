@@ -5,7 +5,7 @@ export default function Subscriptions() {
     const subscriptions: Creator[] = [
         {
             name: "Juxtopposed",
-            profilePicture: "/profile-photos/Juxtopposed.png",
+            profilePicture: "/profile-photos/juxtopposed.png",
             verified: true,
             hasNewVideo: true,
         },
